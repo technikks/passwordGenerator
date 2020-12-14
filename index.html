@@ -14,36 +14,35 @@
   </header>
   
   <main class="pGenerator">
-    <h2>Generate a Password</h2><hr>
+    <h2>Guidelines</h2>
+    <ul>
+      <li>You must indicate an amount of characters between 8 and 158 for your password.</li>
+      <li>You must select at least <strong>one</strong> criteria below for your password.</li>
+    </ul><hr>
 
-    <p id="criteria">
-      Guidelines on how to use the password generator: 
-      <ul>
-        <li>You must indicate an amount of characters between 8 and 158 for your password.</li>
-        <li>You must select at least <strong>one</strong> criteria below for your password.</li>
-      </ul><hr>
+    <form class = "criteria">
+      <h2>Criteria</h2>
+      
+      <label>Amount of Characters</label>
+      <input type="number" min="8" max="158" required id="charAmount"><br>
+
+      <input type="checkbox" id="includeUpper">
+      <label>Include Uppercase</label><br>
+        
+      <input type="checkbox" id="includeLower">
+      <label>Include Lowercase</label><br>
+        
+      <input type="checkbox" id="includeNum">
+      <label>Include Numbers</label><br>
+        
+      <input type="checkbox" id="includeSpecial">
+      <label>Include Special Characters</label><br>
+    </form><br>
+
+    <button id="submit">Generate Password</button>
     
-      <form class = "userSelection"> <br>
-        <label>Amount of Characters</label>
-        <input type="number" min="8" max="158" required id="charAmount"><br>
+    <p id="password">Your Secure Password</p>
 
-        <input type="checkbox" id="includeUpper">
-        <label>Include Uppercase</label><br>
-        
-        <input type="checkbox" id="includeLower">
-        <label>Include Lowercase</label><br>
-        
-        <input type="checkbox" id="includeNum">
-        <label>Include Numbers</label><br>
-        
-        <input type="checkbox" id="includeSpecial">
-        <label>Include Special Characters</label><br>
-      </form>
-    </p>
-    
-    <p id="preText">Your Secure Password</p><hr>
-
-    <button>Generate Password</button>
   </main>
 
 </div>

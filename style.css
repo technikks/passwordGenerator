@@ -18,16 +18,24 @@ hr {
   margin-left: 100px; 
   margin-right: 100px; 
   border-radius: 5px;
+  z-index: 0
+  position: relative; 
 }
-#preText {
+
+#password {
   font-family: 'Courier New', Courier, monospace;
   border: dashed 1px #bfbfbf; 
   border-radius: 5px; 
-  height: 150px; 
+  height: 200px; 
+  width: 1300px;
   padding: 10px; 
   text-align: center; 
   color: #bfbfbf; 
   font-size: 20px;
+  position: absolute; 
+  z-index: 1;
+  right: 150px;
+  top: 250px;
 }
 
 button {
@@ -36,6 +44,5 @@ button {
   background-color: #990000; 
   border: none; 
   padding: 10px;
-  display: block; 
-  margin: 0 auto; 
+  margin-left: 75px;
 }
