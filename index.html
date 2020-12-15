@@ -8,45 +8,34 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
   <header>
-    <h1>Password Generator</h1>
+      <h1>Password Generator</h1>
   </header>
   
-  <main class="pGenerator">
-    <h2>Guidelines</h2>
-    <ul>
-      <li>You must indicate an amount of characters between 8 and 158 for your password.</li>
-      <li>You must select at least <strong>one</strong> criteria below for your password.</li>
-    </ul><hr>
+  <main class="container">
+    <h2>Generate a Password</h2><hr>
 
-    <form class = "criteria">
-      <h2>Criteria</h2>
-      
-      <label>Amount of Characters</label>
-      <input type="number" min="8" max="158" required id="charAmount"><br>
+    <section class="result">
+      <p>Your Secure Password</p>
+    </section>
+    <hr>
 
-      <input type="checkbox" id="includeUpper">
-      <label>Include Uppercase</label><br>
-        
-      <input type="checkbox" id="includeLower">
-      <label>Include Lowercase</label><br>
-        
-      <input type="checkbox" id="includeNum">
-      <label>Include Numbers</label><br>
-        
-      <input type="checkbox" id="includeSpecial">
-      <label>Include Special Characters</label><br>
-    </form><br>
-
-    <button id="submit">Generate Password</button>
-    
-    <p id="password">Your Secure Password</p>
-
+    <button type="button" onclick="myFunction()">Generate Password</button>
   </main>
-
-</div>
   
-  <script src="script.js"></script>
+  <script>
+    function myFunction() {
+      alert("INSTRUCTIONS: \n1. You must indicate an amount of characters between 8 and 128 for your password. \n2. You must select at least one of the following criteria for your password: \n  - Lowercase \n  - Uppercase \n  - Number \n  - Special Characters"); 
+
+      var charAmount = prompt("How many characters would you like to have for your password?"); 
+      if ((charAmount == isNan()) || (charAmount < 8) || (charAmount > 128)) {
+        alert("Please enter a numerical value between 8 and 128."); 
+      } else {
+        alert("You selected " + charAmount + "characters for your password.");
+      }
+    
+    
+    }
+  </script>
 </body>
 </html>
