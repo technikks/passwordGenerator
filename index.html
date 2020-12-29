@@ -14,28 +14,15 @@
   
   <main class="container">
     <h2>Generate a Password</h2><hr>
-
-    <section class="result">
+  
+    <section class="result" id="passwordDisplay">
       <p>Your Secure Password</p>
     </section>
     <hr>
 
-    <button type="button" onclick="myFunction()">Generate Password</button>
+    <button type="button" onclick="start()">Click Me to Start</button>
   </main>
   
-  <script>
-    function myFunction() {
-      alert("INSTRUCTIONS: \n1. You must indicate an amount of characters between 8 and 128 for your password. \n2. You must select at least one of the following criteria for your password: \n  - Lowercase \n  - Uppercase \n  - Number \n  - Special Characters"); 
-
-      var charAmount = prompt("How many characters would you like to have for your password?"); 
-      if ((charAmount == isNan()) || (charAmount < 8) || (charAmount > 128)) {
-        alert("Please enter a numerical value between 8 and 128."); 
-      } else {
-        alert("You selected " + charAmount + "characters for your password.");
-      }
-    
-    
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
