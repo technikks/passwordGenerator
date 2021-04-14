@@ -1,5 +1,5 @@
 # passwordGenerator
-GW Coding Bootcamp Homework #3 due Tuesday, November 24, 2020.
+GW Coding Bootcamp Homework #3 
 
 ## Deployed URL
 (https://technikks.github.io/passwordGenerator/)
