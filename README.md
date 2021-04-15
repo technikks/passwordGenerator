@@ -1,12 +1,11 @@
 # passwordGenerator
-GW Coding Bootcamp Homework #3 
 
 
 ## Deployed URL
 (https://technikks.github.io/passwordGenerator/)
 
 
-## Purpose
+## Description
 An application that an employee can use to generate a random password that provides great security based on criteria they've selected by modifying starter code. This app will run in the browser, and will feature dynamically updated HTML and CSS powered by JavaScript code. 
 
 * HTML and CSS is used to create a clean and polished user interface that is responsivehave and can render well on a variety of devices and window or screen sizes. 
@@ -26,5 +25,11 @@ An application that an employee can use to generate a random password that provi
 
 ## Mock-Up
 ![JavaScript Homework Demo](Assets/03-javascript-homework-demo.png) 
+
+
+## Technologies
+* HTML
+* CSS
+* JavaScript
 
 
