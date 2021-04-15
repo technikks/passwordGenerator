@@ -1,68 +1,134 @@
-// Starting function to alert intructions and for the first criteria - character amount
-function start() {
-    alert(`INSTRUCTIONS: \n1. You must indicate an amount of characters between 8 and 128 for your password. \n2. You must select at least one of the following criteria for your password: \n  - Uppercase \n  - Lowercase \n  - Special Characters \n  - Numbers`); 
-};
-
-// First Criteria - Character Amount 
-var charAmount = prompt(`How many characters would you like to have for your password? Please enter a numerical value between 8 and 128.`)
-if ((isNaN(charAmount)) || (charAmount < 8) || (charAmount > 128) || (charAmount === null)) {
-    alert(`You did not enter a numerical value between 8 and 128. Please try again.`);
-    start();
-} else if ((isNaN(charAmount) === false) || (charAmount >= 8) || (charAmount <= 128)) {
-    console.log(`Amount Characters: ${charAmount}`);
-};
-start();
+// Link generate password button from HTML
+var generateBtn = document.querySelector("#generate"); 
 
 
-// Arrays for criterias
+// Setting password array to an empty array 
+var passwordArray = [];
+
+
+// Arrays for password criterias
 var uppercaseArray = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split(""); 
 var lowercaseArray = "abcdefghijklmnopqrstuvwxyz".split("");
 var specialCharArray = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~".split("");
 var numbersArray = "0123456789".split("");
 
 
-// Confirm second criteria - Uppercase
-var uppercase = confirm(`Would you like to include any uppercase?`) 
-    console.log(`Include Uppercase: ${uppercase}`);
-            
-// Confirm third criteria - Lowercase
-var lowercase = confirm(`Would you like to include any lowercase?`); 
-        console.log(`Include Lowercase: ${lowercase}`);
-    
-// Confirm fourth criteria - Special Character
-var specialChar = confirm(`Would you like to include any special characters?`); 
-    console.log(`Include Special Characters: ${specialChar}`); 
-    
-// Confirm fifth criteria - Numbers
-var numbers = confirm(`Would you like to include any numbers?`); 
-    console.log(`Include Numbers: ${numbers}`); 
-
-criteriaCheck()
+// Function to write password and display in #password of HTML
+function writePassword() {
+    var password = generatePassword();
+    var randomPassword = document.querySelector("#password");
+    randomPassword.value = password;
 
 
-// Function to check whether user confirmed at least one of either uppercase, lowercase, special characters, or numbers to include in the password. 
-function criteriaCheck() {
-    if (uppercase === false && lowercase === false && specialChar === false && numbers === false) {
-        alert(`You did not pick at least one of the criteria (uppercase, lowercase, special characters, or numbers) to be included in your password. Please try again.`); 
-    } 
-    start();
-}
+    // Function to generate password 
+    function generatePassword() {
+      alert(`INSTRUCTIONS: \n1. You must indicate an amount of characters between 8 and 128 for your password. \n2. You must select at least one of the following criteria for your password: \n  - Uppercase \n  - Lowercase \n  - Special Characters \n  - Numbers`);
 
-// Creates arrays based on users input
-var inputArray = [];
 
-if (uppercase === true) {
-    inputArray = inputArray.concat(uppercaseArray); 
-}
-if (lowercase === true) {
-    inputArray = inputArray.concat(lowercaseArray); 
-}
+      // First Criteria - Character Amount 
+      var charAmount = prompt(`How many characters would you like to have for your password? Please enter a numerical value between 8 and 128.`);
+  
+      
+      // Parse integer so user's string-based entry becomes a number that can be used later in loop iterations
+      charAmount = parseInt(charAmount);
+      console.log(charAmount);
+  
 
-if (numbers === true) {
-    inputArray = inputArray.concat(numbersArray); 
-}
+      // If else statement ensuring user input is valid
+      if ((isNaN(charAmount) === false) || (charAmount >= 8) || (charAmount <= 128)) {
+        
+        
+        // Second Criteria - Numbers
+        var numbers = confirm("Would you like to include numbers in your password?");
+        
+        
+        // Add numbers array to password array if user confirms to have numbers in the password
+        if (numbers === true) {
+          passwordArray = passwordArray.concat(numbersArray);
+          console.log(passwordArray);
+        }
+        else {
+          numbers === false;
+        }
+  
 
-if (specialChar === true) {
-    inputArray = inputArray.concat(specialCharArray);
-}
-console.log(inputArray); 
+        // Third Criteria - Special Characters
+        var specialChar = confirm("Would you like to have special characters in your password?");
+
+
+         // Add special characters array to password array if user confirms to have numbers in the password
+        if (specialChar === true) {
+          passwordArray = passwordArray.concat(specialCharArray);
+          console.log(passwordArray);
+        }
+        else {
+           specialChar === false;
+        }
+  
+
+        // Fourth Criteria - Uppercase Letters
+        var uppercase = confirm("Would you like to have uppercase letters in your password?");
+        
+        
+        // Add uppercase array to password array if user confirms to have numbers in the password
+        if (uppercase === true) {
+          passwordArray = passwordArray.concat(uppercaseArray);
+          console.log(passwordArray);
+        }
+        else {
+           uppercase=== false;
+        }
+  
+
+        // Fifth Criteria - Lowercase Letters
+        var lowercase = confirm("Would you like to havelowercase letters in your password?");
+
+
+        // Add lowercase array to password array if user confirms to have numbers in the password
+        if (lowercase === true) {
+          passwordArray = passwordArray.concat(lowercaseArray);
+          console.log(passwordArray);
+        }
+        else {
+          lowercase === false;
+        }
+  
+
+        // Console log the password array based on indicated criteria
+        console.log(passwordArray);
+  
+
+        // If statement to check whether user confirmed at least one of either uppercase, lowercase, special characters, or numbers to include in the password. 
+        if (numbers === false && specialChar === false && uppercase === false && lowercase === false) {
+          alert(`You did not pick at least one of the criteria (uppercase, lowercase, special characters, or numbers) to be included in your password. Please try again.`);
+          return randomPassword;
+        }
+  
+
+        // Else statement to proceed if user confirmed at least one of either uppercase, lowercase, special characters, or numbers to include in the password. 
+        else {
+          var randomPassword = "";
+          for (var i = 0; i < charAmount; i++) {
+            var password = Math.floor(Math.random() * passwordArray.length);
+            randomPassword += passwordArray[password];
+          }
+          
+
+          // Display generated password 
+          console.log(randomPassword);
+          return randomPassword;
+        }
+      }
+
+
+      // If user did not indicate a number between 8 and 128 for characters amount
+      else {
+        alert(`You did not enter a numerical value between 8 and 128. Please try again.`);
+      }
+    }
+  }
+  
+  // Add event listener to generate button
+  generateBtn.addEventListener("click", writePassword); {
+      
+  }
